@@ -25,9 +25,9 @@ const Step3 = ({ formData, setFormData, nextStep, prevStep }) => {
           Frequency of Traveling by Air:
         </label>
         <select
-          value={formData.travelByAir}
+          value={formData.airTravelFrequency}
           onChange={(e) =>
-            setFormData({ ...formData, travelByAir: e.target.value })
+            setFormData({ ...formData, airTravelFrequency: e.target.value })
           }
           className="w-full p-2 border rounded-md"
         >
