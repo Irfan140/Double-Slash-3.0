@@ -20,9 +20,9 @@ const Step5 = ({ formData, setFormData, nextStep, prevStep }) => {
           className="w-full p-2 border rounded-md"
         >
           <option value="">Select</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-          <option value="sometimes">Sometimes</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          <option value="Sometimes">Sometimes</option>
         </select>
       </div>
 

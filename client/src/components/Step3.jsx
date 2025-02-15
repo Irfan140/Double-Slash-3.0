@@ -72,10 +72,10 @@ const Step3 = ({ formData, setFormData, nextStep, prevStep }) => {
           className="w-full p-2 border rounded-md"
         >
           <option value="">Select</option>
-          <option value="Small">Small</option>
-          <option value="Medium">Medium</option>
-          <option value="Large">Large</option>
-          <option value="Extra Large">Extra Large</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+          <option value="extra Large">Extra Large</option>
         </select>
       </div>
 
