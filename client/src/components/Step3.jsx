@@ -32,14 +32,14 @@ const Step3 = ({ formData, setFormData, nextStep, prevStep }) => {
           className="w-full p-2 border rounded-md"
         >
           <option value="">Select</option>
-          <option value="Never">Never</option>
-          <option value="Rarely (1-2 times a year)">
+          <option value="never">Never</option>
+          <option value="rarely">
             Rarely (1-2 times a year)
           </option>
-          <option value="Frequently (Every few months)">
+          <option value="frequently">
             Frequently (Every few months)
           </option>
-          <option value="Very Frequently (Every month)">
+          <option value="very frequently">
             Very Frequently (Every month)
           </option>
         </select>
