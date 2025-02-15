@@ -16,7 +16,6 @@ const MultiStepForm = () => {
     showerFrequency: "",
     heatingSource: "",
     transport: "",
-    vehicleType: "",
     socialActivity: "",
     groceryBill: "",
     airTravelFrequency: "", // updated to match API key: "Frequency of Traveling by Air"
@@ -27,9 +26,7 @@ const MultiStepForm = () => {
     newClothes: "", // corresponds to "How Many New Clothes Monthly"
     internetHours: "", // corresponds to "How Long Internet Daily Hour"
     energyEfficiency: "",
-    recycling: "",
-    cookingWith: "",
-    carbonEmission: "" // will be set after API call
+    
   });
 
   const nextStep = () => setStep(step + 1);
