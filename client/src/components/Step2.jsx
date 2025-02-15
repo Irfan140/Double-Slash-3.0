@@ -36,7 +36,7 @@ const Step2 = ({ formData, setFormData, nextStep, prevStep }) => {
           <option value="">Select</option>
           <option value="public">Public Transport</option>
           <option value="walk/bicycle">Walking/Bicycle</option>
-          <option value="private ">Private Vehicle</option>
+          <option value="private">Private Vehicle</option>
         </select>
       </div>
 
