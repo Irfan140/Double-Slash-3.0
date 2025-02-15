@@ -10,7 +10,7 @@ const Step6 = ({ formData, prevStep, submitForm }) => {
         <label className="block font-medium">Estimated Carbon Emission:</label>
         <input
           type="text"
-          value={formData.carbonEmission}
+          value={formData.carbonEmission || "Calculating..."}
           readOnly
           className="w-full p-2 border rounded-md bg-gray-100"
         />

@@ -22,7 +22,7 @@ const Step5 = ({ formData, setFormData, nextStep, prevStep }) => {
           <option value="">Select</option>
           <option value="yes">Yes</option>
           <option value="no">No</option>
-          <option value="Sometimes">Sometimes</option>
+          <option value="sometimes">Sometimes</option>
         </select>
       </div>
 

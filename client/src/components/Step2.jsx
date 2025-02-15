@@ -68,7 +68,7 @@ const Step2 = ({ formData, setFormData, nextStep, prevStep }) => {
           Back
         </button>
         <button
-          onClick={nextStep}
+          onClick={nextStep} // Move to next step without submitting data
           className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
         >
           Next

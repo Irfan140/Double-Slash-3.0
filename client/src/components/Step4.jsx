@@ -26,7 +26,7 @@ const Step4 = ({ formData, setFormData, nextStep, prevStep }) => {
         </select>
       </div>
 
-      {/* How Long TV PC Daily (Hours) */}
+      {/* Hours Spent on TV/PC Daily */}
       <div className="mb-4">
         <label className="block font-medium">Hours Spent on TV/PC Daily:</label>
         <input
@@ -40,7 +40,7 @@ const Step4 = ({ formData, setFormData, nextStep, prevStep }) => {
         />
       </div>
 
-      {/* How Many New Clothes Monthly */}
+      {/* New Clothes Purchased Monthly */}
       <div className="mb-4">
         <label className="block font-medium">
           New Clothes Purchased Monthly:
@@ -56,7 +56,7 @@ const Step4 = ({ formData, setFormData, nextStep, prevStep }) => {
         />
       </div>
 
-      {/* How Long Internet Daily (Hours) */}
+      {/* Hours Spent on Internet Daily */}
       <div className="mb-4">
         <label className="block font-medium">
           Hours Spent on Internet Daily:
