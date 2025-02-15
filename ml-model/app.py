@@ -83,6 +83,7 @@ def predict():
 
         # Get prediction using the pipeline (which applies preprocessing automatically)
         prediction = pipeline.predict(input_df)[0]
+        print(float(prediction))
         return jsonify({"CarbonEmission": float(prediction)})
     except Exception as e:
         print("Prediction error:", e)
