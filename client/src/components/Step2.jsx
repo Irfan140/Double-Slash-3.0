@@ -16,10 +16,10 @@ const Step2 = ({ formData, setFormData, nextStep, prevStep }) => {
           className="w-full p-2 border rounded-md"
         >
           <option value="">Select</option>
-          <option value="Coal">Coal</option>
-          <option value="Natural Gas">Natural Gas</option>
-          <option value="Wood">Wood</option>
-          <option value="Electricity">Electricity</option>
+          <option value="coal">Coal</option>
+          <option value="natural gas">Natural Gas</option>
+          <option value="wood">Wood</option>
+          <option value="electricity">Electricity</option>
         </select>
       </div>
 
@@ -34,9 +34,9 @@ const Step2 = ({ formData, setFormData, nextStep, prevStep }) => {
           className="w-full p-2 border rounded-md"
         >
           <option value="">Select</option>
-          <option value="Public Transport">Public Transport</option>
-          <option value="Walking/Bicycle">Walking/Bicycle</option>
-          <option value="Private Vehicle">Private Vehicle</option>
+          <option value="public">Public Transport</option>
+          <option value="walk/bicycle">Walking/Bicycle</option>
+          <option value="private ">Private Vehicle</option>
         </select>
       </div>
 
@@ -53,9 +53,9 @@ const Step2 = ({ formData, setFormData, nextStep, prevStep }) => {
           className="w-full p-2 border rounded-md"
         >
           <option value="">Select</option>
-          <option value="Often">Often</option>
-          <option value="Never">Never</option>
-          <option value="Sometimes">Sometimes</option>
+          <option value="often">Often</option>
+          <option value="never">Never</option>
+          <option value="sometimes">Sometimes</option>
         </select>
       </div>
 

@@ -14,10 +14,10 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
           className="w-full p-2 border rounded-md"
         >
           <option value="">Select</option>
-          <option value="Overweight">Overweight</option>
-          <option value="Obese">Obese</option>
-          <option value="Underweight">Underweight</option>
-          <option value="Normal">Normal</option>
+          <option value="overweight">Overweight</option>
+          <option value="obese">Obese</option>
+          <option value="underweight">Underweight</option>
+          <option value="normal">Normal</option>
         </select>
       </div>
 
@@ -30,8 +30,8 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
           className="w-full p-2 border rounded-md"
         >
           <option value="">Select</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
         </select>
       </div>
 
@@ -44,10 +44,10 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
           className="w-full p-2 border rounded-md"
         >
           <option value="">Select</option>
-          <option value="Vegetarian">Vegetarian</option>
-          <option value="Omnivore">Omnivore</option>
-          <option value="Vegan">Vegan</option>
-          <option value="Pescatarian">Pescatarian</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="omnivore">Omnivore</option>
+          <option value="vegan">Vegan</option>
+          <option value="pescatarian">Pescatarian</option>
         </select>
       </div>
 
@@ -60,10 +60,10 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
           className="w-full p-2 border rounded-md"
         >
           <option value="">Select</option>
-          <option value="Daily">Daily</option>
-          <option value="Less Frequently">Less Frequently</option>
-          <option value="More Frequently">More Frequently</option>
-          <option value="Twice a Day">Twice a Day</option>
+          <option value="daily">Daily</option>
+          <option value="less frequently">Less Frequently</option>
+          <option value="more frequently">More Frequently</option>
+          <option value="twice a day">Twice a Day</option>
         </select>
       </div>
 

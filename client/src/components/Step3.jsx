@@ -75,7 +75,7 @@ const Step3 = ({ formData, setFormData, nextStep, prevStep }) => {
           <option value="small">Small</option>
           <option value="medium">Medium</option>
           <option value="large">Large</option>
-          <option value="extra Large">Extra Large</option>
+          <option value="extra large">Extra Large</option>
         </select>
       </div>
 
