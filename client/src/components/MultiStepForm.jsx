@@ -18,7 +18,7 @@ const MultiStepForm = () => {
     transport: "",
     socialActivity: "",
     groceryBill: "",
-    airTravelFrequency: "", // updated to match API key: "Frequency of Traveling by Air"
+    airTravelFrequency: "", // corresponds to "Frequency of Traveling by Air"
     vehicleDistance: "",
     wasteBagSize: "",
     wasteBagCount: "",
@@ -26,14 +26,13 @@ const MultiStepForm = () => {
     newClothes: "", // corresponds to "How Many New Clothes Monthly"
     internetHours: "", // corresponds to "How Long Internet Daily Hour"
     energyEfficiency: "",
-    
+    carbonEmission: null, // Holds the result after API response
   });
 
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
 
-  // This function builds the payload with the keys expected by your Flask API,
-  // sends the POST request, and updates formData with the returned carbon emission.
+  // Function to submit data to Flask API
   const submitForm = async () => {
     const payload = {
       "Body Type": formData.bodyType,
@@ -45,17 +44,17 @@ const MultiStepForm = () => {
       "Social Activity": formData.socialActivity,
       "Frequency of Traveling by Air": formData.airTravelFrequency,
       "Waste Bag Size": formData.wasteBagSize,
-      "Waste Bag Weekly Count": formData.wasteBagCount,
+      "Waste Bag Weekly Count": parseFloat(formData.wasteBagCount) || 0,
       "Energy efficiency": formData.energyEfficiency,
-      "Monthly Grocery Bill": parseFloat(formData.groceryBill),
-      "Vehicle Monthly Distance Km": parseFloat(formData.vehicleDistance),
-      "How Long TV PC Daily Hour": parseFloat(formData.tvPcHours),
-      "How Many New Clothes Monthly": parseFloat(formData.newClothes),
-      "How Long Internet Daily Hour": parseFloat(formData.internetHours)
+      "Monthly Grocery Bill": parseFloat(formData.groceryBill) || 0,
+      "Vehicle Monthly Distance Km": parseFloat(formData.vehicleDistance) || 0,
+      "How Long TV PC Daily Hour": parseFloat(formData.tvPcHours) || 0,
+      "How Many New Clothes Monthly": parseFloat(formData.newClothes) || 0,
+      "How Long Internet Daily Hour": parseFloat(formData.internetHours) || 0
     };
 
     try {
-      const response = await fetch("http://localhost:5000/predict", {
+      const response = await fetch("http://127.0.0.1:5000/predict", { // 🔹 Fixed API URL
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -68,13 +67,13 @@ const MultiStepForm = () => {
         console.error("API Error:", errorData.error);
       } else {
         const data = await response.json();
-        // Update state with the prediction from the API
-        setFormData(prev => ({ ...prev, carbonEmission: data.CarbonEmission }));
+        setFormData(prev => ({ ...prev, carbonEmission: data.CarbonEmission || "N/A" }));
       }
     } catch (error) {
       console.error("Error while calling API:", error);
     }
-    setStep(7); // Move to the results page
+
+    setStep(7); // Move to results page
   };
 
   const restartForm = () => {
@@ -85,7 +84,6 @@ const MultiStepForm = () => {
       showerFrequency: "",
       heatingSource: "",
       transport: "",
-      vehicleType: "",
       socialActivity: "",
       groceryBill: "",
       airTravelFrequency: "",
@@ -96,9 +94,7 @@ const MultiStepForm = () => {
       newClothes: "",
       internetHours: "",
       energyEfficiency: "",
-      recycling: "",
-      cookingWith: "",
-      carbonEmission: ""
+      carbonEmission: null,
     });
     setStep(1);
   };
