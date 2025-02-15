@@ -1,17 +1,29 @@
 import React from "react";
 
 const Step1 = ({ formData, setFormData, nextStep }) => {
+  // Check if all required fields are filled
+  const isNextDisabled =
+    !formData.bodyType ||
+    !formData.gender ||
+    !formData.diet ||
+    !formData.showerFrequency;
+
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-xl font-bold mb-4">Step 1: Personal Information</h2>
+    <div className="p-6 bg-white rounded-lg shadow-md max-w-lg mx-auto">
+      <h2 className="text-xl font-bold mb-4 text-center">
+        Step 1: Personal Information
+      </h2>
 
       {/* Body Type */}
       <div className="mb-4">
-        <label className="block font-medium">Body Type:</label>
+        <label htmlFor="bodyType" className="block font-medium mb-1">
+          Body Type:
+        </label>
         <select
-          value={formData.bodyType}
+          id="bodyType"
+          value={formData.bodyType || ""}
           onChange={(e) => setFormData({ ...formData, bodyType: e.target.value })}
-          className="w-full p-2 border rounded-md"
+          className="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
         >
           <option value="">Select</option>
           <option value="overweight">Overweight</option>
@@ -23,11 +35,14 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
 
       {/* Gender */}
       <div className="mb-4">
-        <label className="block font-medium">Gender:</label>
+        <label htmlFor="gender" className="block font-medium mb-1">
+          Gender:
+        </label>
         <select
-          value={formData.gender}
+          id="gender"
+          value={formData.gender || ""}
           onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
-          className="w-full p-2 border rounded-md"
+          className="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
         >
           <option value="">Select</option>
           <option value="male">Male</option>
@@ -37,11 +52,14 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
 
       {/* Diet */}
       <div className="mb-4">
-        <label className="block font-medium">Diet:</label>
+        <label htmlFor="diet" className="block font-medium mb-1">
+          Diet:
+        </label>
         <select
-          value={formData.diet}
+          id="diet"
+          value={formData.diet || ""}
           onChange={(e) => setFormData({ ...formData, diet: e.target.value })}
-          className="w-full p-2 border rounded-md"
+          className="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
         >
           <option value="">Select</option>
           <option value="vegetarian">Vegetarian</option>
@@ -53,11 +71,16 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
 
       {/* Frequency of Showering */}
       <div className="mb-4">
-        <label className="block font-medium">How Often Do You Shower?</label>
+        <label htmlFor="showerFrequency" className="block font-medium mb-1">
+          How Often Do You Shower?
+        </label>
         <select
-          value={formData.showerFrequency}
-          onChange={(e) => setFormData({ ...formData, showerFrequency: e.target.value })}
-          className="w-full p-2 border rounded-md"
+          id="showerFrequency"
+          value={formData.showerFrequency || ""}
+          onChange={(e) =>
+            setFormData({ ...formData, showerFrequency: e.target.value })
+          }
+          className="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
         >
           <option value="">Select</option>
           <option value="daily">Daily</option>
@@ -69,8 +92,13 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
 
       {/* Next Button */}
       <button
-        onClick={nextStep} // Moves to the next step without submitting data yet
-        className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
+        onClick={nextStep}
+        disabled={isNextDisabled} // Prevents proceeding with empty fields
+        className={`px-4 py-2 rounded-md transition duration-200 ${
+          isNextDisabled
+            ? "bg-gray-300 text-gray-600 cursor-not-allowed"
+            : "bg-green-500 text-white hover:bg-green-600"
+        }`}
       >
         Next
       </button>

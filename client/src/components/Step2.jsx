@@ -1,19 +1,28 @@
 import React from "react";
 
 const Step2 = ({ formData, setFormData, nextStep, prevStep }) => {
+  // Check if required fields are filled
+  const isNextDisabled =
+    !formData.heatingEnergy || !formData.transport || !formData.socialActivity;
+
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-xl font-bold mb-4">Step 2: Lifestyle Information</h2>
+    <div className="p-6 bg-white rounded-lg shadow-md max-w-lg mx-auto">
+      <h2 className="text-xl font-bold mb-4 text-center">
+        Step 2: Lifestyle Information
+      </h2>
 
       {/* Heating Energy Source */}
       <div className="mb-4">
-        <label className="block font-medium">Heating Energy Source:</label>
+        <label htmlFor="heatingEnergy" className="block font-medium mb-1">
+          Heating Energy Source:
+        </label>
         <select
-          value={formData.heatingEnergy}
+          id="heatingEnergy"
+          value={formData.heatingEnergy || ""}
           onChange={(e) =>
             setFormData({ ...formData, heatingEnergy: e.target.value })
           }
-          className="w-full p-2 border rounded-md"
+          className="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
         >
           <option value="">Select</option>
           <option value="coal">Coal</option>
@@ -25,13 +34,16 @@ const Step2 = ({ formData, setFormData, nextStep, prevStep }) => {
 
       {/* Transport Preference */}
       <div className="mb-4">
-        <label className="block font-medium">Transport Preference:</label>
+        <label htmlFor="transport" className="block font-medium mb-1">
+          Transport Preference:
+        </label>
         <select
-          value={formData.transport}
+          id="transport"
+          value={formData.transport || ""}
           onChange={(e) =>
             setFormData({ ...formData, transport: e.target.value })
           }
-          className="w-full p-2 border rounded-md"
+          className="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
         >
           <option value="">Select</option>
           <option value="public">Public Transport</option>
@@ -42,15 +54,16 @@ const Step2 = ({ formData, setFormData, nextStep, prevStep }) => {
 
       {/* Social Activity Frequency */}
       <div className="mb-4">
-        <label className="block font-medium">
+        <label htmlFor="socialActivity" className="block font-medium mb-1">
           How Often Do You Participate in Social Activities?
         </label>
         <select
-          value={formData.socialActivity}
+          id="socialActivity"
+          value={formData.socialActivity || ""}
           onChange={(e) =>
             setFormData({ ...formData, socialActivity: e.target.value })
           }
-          className="w-full p-2 border rounded-md"
+          className="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
         >
           <option value="">Select</option>
           <option value="often">Often</option>
@@ -60,16 +73,21 @@ const Step2 = ({ formData, setFormData, nextStep, prevStep }) => {
       </div>
 
       {/* Navigation Buttons */}
-      <div className="flex justify-between">
+      <div className="flex justify-between mt-6">
         <button
           onClick={prevStep}
-          className="bg-gray-400 text-white px-4 py-2 rounded-md hover:bg-gray-500"
+          className="bg-gray-400 text-white px-4 py-2 rounded-md hover:bg-gray-500 transition duration-200"
         >
           Back
         </button>
         <button
-          onClick={nextStep} // Move to next step without submitting data
-          className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
+          onClick={nextStep}
+          disabled={isNextDisabled} // Prevents proceeding with empty fields
+          className={`px-4 py-2 rounded-md transition duration-200 ${
+            isNextDisabled
+              ? "bg-gray-300 text-gray-600 cursor-not-allowed"
+              : "bg-green-500 text-white hover:bg-green-600"
+          }`}
         >
           Next
         </button>
