@@ -50,10 +50,13 @@ With rising environmental concerns, many people are unaware of their individual 
 - User privacy concerns regarding input data  
 
 ## 📽️ Project Demo  
-🔗 **Google Drive Link:** [Insert Google Drive link here]  
+🔗 **Google Drive Link:** https://drive.google.com/file/d/1zDib0ehJxSqDfwJrl8pgUK_KyGBJWoLS/view?usp=sharing  
 
 ## 🤝 Team  
 Developed by **Team The Scouts**  
+Irfan Mehmud 
+Mohamed Kamran
+Hansika Shaw
 
 ---
 
