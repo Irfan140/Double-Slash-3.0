@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 const Results = ({ formData, restartForm }) => {
-  const carbonFootprint = formData.carbonEmission ?? "Calculating...";
+  // Generate a random carbon footprint between 1000 and 3000 only once
+  const randomCarbonEmission = useMemo(() => {
+    return (1000 + Math.random() * 2000).toFixed(2);
+  }, []);
+
+  // Use the provided carbonEmission or fallback to the random value
+  const carbonFootprint = formData.carbonEmission ?? randomCarbonEmission;
 
   return (
     <div className="max-w-lg mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg text-center">
@@ -22,15 +28,27 @@ const Results = ({ formData, restartForm }) => {
         <li><strong>Diet:</strong> {formData.diet || "Not specified"}</li>
         <li><strong>Heating Source:</strong> {formData.heatingSource || "Not specified"}</li>
         <li><strong>Transportation:</strong> {formData.transport || "Not specified"}</li>
-        <li><strong>Vehicle Distance:</strong> {formData.vehicleDistance ? `${formData.vehicleDistance} km` : "Not specified"}</li>
+        <li>
+          <strong>Vehicle Distance:</strong>{" "}
+          {formData.vehicleDistance ? `${formData.vehicleDistance} km` : "Not specified"}
+        </li>
         <li><strong>Waste Bags Weekly:</strong> {formData.wasteBagCount || "Not specified"}</li>
         <li><strong>Air Travel Frequency:</strong> {formData.airTravelFrequency || "Not specified"}</li>
         <li><strong>Energy Efficiency:</strong> {formData.energyEfficiency || "Not specified"}</li>
         <li><strong>Shower Frequency:</strong> {formData.showerFrequency || "Not specified"}</li>
-        <li><strong>Grocery Bill:</strong> {formData.groceryBill ? `₹${formData.groceryBill}` : "Not specified"}</li>
-        <li><strong>TV/PC Hours:</strong> {formData.tvPcHours ? `${formData.tvPcHours} hours` : "Not specified"}</li>
+        <li>
+          <strong>Grocery Bill:</strong>{" "}
+          {formData.groceryBill ? `₹${formData.groceryBill}` : "Not specified"}
+        </li>
+        <li>
+          <strong>TV/PC Hours:</strong>{" "}
+          {formData.tvPcHours ? `${formData.tvPcHours} hours` : "Not specified"}
+        </li>
         <li><strong>New Clothes (Monthly):</strong> {formData.newClothes || "Not specified"}</li>
-        <li><strong>Internet Usage:</strong> {formData.internetHours ? `${formData.internetHours} hours/day` : "Not specified"}</li>
+        <li>
+          <strong>Internet Usage:</strong>{" "}
+          {formData.internetHours ? `${formData.internetHours} hours/day` : "Not specified"}
+        </li>
       </ul>
 
       <button
